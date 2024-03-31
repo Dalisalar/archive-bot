@@ -6,12 +6,10 @@ services:
       context: .
     depends_on:
       - mongo
-    environment:
-      - TELEGRAM_BOT_TOKEN=TELEGRAM_BOT_TOKEN
-    network_mode: "host"
 
   mongo:
     image: mongo
+    expose:
+    - "27017:27017"
     volumes:
       - ./data:/data/db
-    network_mode: "host"
