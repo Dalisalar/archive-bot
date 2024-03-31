@@ -9,7 +9,8 @@ services:
 
   mongo:
     image: mongo
-    expose:
-    - "27017"
+    ports:
+    - "27017:27017"
     volumes:
       - ./data:/data/db
+    command: mongod --bind_ip_all
