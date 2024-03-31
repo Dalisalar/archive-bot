@@ -1,5 +1,6 @@
 import os
 import asyncio
+import logging
 from aiogram import Bot, Dispatcher, types
 from motor.motor_asyncio import AsyncIOMotorClient
 
@@ -21,4 +22,5 @@ async def save_message(message: types.Message):
     await messages_collection.insert_one(message.model_dump())
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
     asyncio.run(dp.start_polling(bot, polling_timeout=60))
