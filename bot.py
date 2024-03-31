@@ -24,9 +24,6 @@ messages_collection = db.get_collection("messages")
 async def save_message(message: types.Message):
     await messages_collection.insert_one(message.model_dump())
 
-async def main():
-    await dp.start_polling(bot, polling_timeout=60)
-
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
-    asyncio.run(main())
+    asyncio.run(dp.start_polling(bot, polling_timeout=60))
