@@ -8,7 +8,7 @@ MONGO_URI = os.environ.get('MONGO_URI', 'mongodb://mongo:27017')
 
 # Initialize aiogram bot
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
-dp = Dispatcher(bot)
+dp = Dispatcher()
 
 # Initialize MongoDB
 client = AsyncIOMotorClient(MONGO_URI)
@@ -21,4 +21,4 @@ async def save_message(message: types.Message):
     await messages_collection.insert_one(message.model_dump())
 
 if __name__ == '__main__':
-    asyncio.run(dp.start_polling(polling_timeout=60))
+    asyncio.run(dp.start_polling(bot, polling_timeout=60))
