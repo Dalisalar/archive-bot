@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher, types
 from motor.motor_asyncio import AsyncIOMotorClient
 
 TELEGRAM_BOT_TOKEN = os.environ['TELEGRAM_BOT_TOKEN']
-MONGO_URI = os.environ.get('TELEGRAM_BOT_TOKEN', 'mongodb://mongo:27017')
+MONGO_URI = os.environ.get('MONGO_URI', 'mongodb://mongo:27017')
 
 # Initialize aiogram bot
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
